@@ -1,0 +1,285 @@
+
+/* greek-ext */
+@font-face {
+  font-family: 'Caudex';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Caudex Italic'), local('Caudex-Italic'), url(https://fonts.gstatic.com/s/caudex/v9/esDS311QOP6BJUr4yMKPtbo-Ew.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: 'Caudex';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Caudex Bold Italic'), local('Caudex-BoldItalic'), url(https://fonts.gstatic.com/s/caudex/v9/esDV311QOP6BJUr4yMo4kK8NMpWeGQ.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: 'Caudex';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Caudex'), url(https://fonts.gstatic.com/s/caudex/v9/esDQ311QOP6BJUr4wfKBrb4.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: 'Caudex';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Caudex Bold'), local('Caudex-Bold'), url(https://fonts.gstatic.com/s/caudex/v9/esDT311QOP6BJUrwdteUnp8DKpE.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/ebgaramond/v13/SlGFmQSNjdsmc35JDF1K5GRwUjcdlttVFm-rI7e8QL9xU6ingQ.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/ebgaramond/v13/SlGFmQSNjdsmc35JDF1K5GRwUjcdlttVFm-rI7dbR79xU6ingQ.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/ebgaramond/v13/SlGDmQSNjdsmc35JDF1K5E55YMjF_7DPuGi-6_RkCI9_S6w.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/ebgaramond/v13/SlGDmQSNjdsmc35JDF1K5E55YMjF_7DPuGi-DPNkCI9_S6w.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: 'Jura';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/jura/v14/z7NOdRfiaC4Vd8hhoPzfb5vBTP1d7ZuqR_ibHw.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: 'Jura';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/jura/v14/z7NOdRfiaC4Vd8hhoPzfb5vBTP266puqR_ibHw.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Condensed Light'), local('OpenSansCondensed-Light'), url(https://fonts.gstatic.com/s/opensanscondensed/v14/z7NFdQDnbTkabZAIOl9il_O6KJj73e7Ff1GhDunMR6WR.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Condensed Bold'), local('OpenSansCondensed-Bold'), url(https://fonts.gstatic.com/s/opensanscondensed/v14/z7NFdQDnbTkabZAIOl9il_O6KJj73e7Ff0GmDunMR6WR.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v20/KFOkCnqEu92Fr1Mu51xEIzIFKw.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(https://fonts.gstatic.com/s/roboto/v20/KFOjCnqEu92Fr1Mu51TzBic2CsTKlA.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7mxKOzY.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfCBc4EsA.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+
+
+
+
+
+
+
+
+
+/* greek */
+@font-face {
+  font-family: 'Caudex';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Caudex Italic'), local('Caudex-Italic'), url(https://fonts.gstatic.com/s/caudex/v9/esDS311QOP6BJUr4yMKAtbo-Ew.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'Caudex';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Caudex Bold Italic'), local('Caudex-BoldItalic'), url(https://fonts.gstatic.com/s/caudex/v9/esDV311QOP6BJUr4yMo4kK8CMpWeGQ.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'Caudex';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Caudex'), url(https://fonts.gstatic.com/s/caudex/v9/esDQ311QOP6BJUr4zvKBrb4.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'Caudex';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Caudex Bold'), local('Caudex-Bold'), url(https://fonts.gstatic.com/s/caudex/v9/esDT311QOP6BJUrwdteUkZ8DKpE.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/ebgaramond/v13/SlGFmQSNjdsmc35JDF1K5GRwUjcdlttVFm-rI7e8QL9-U6ingQ.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/ebgaramond/v13/SlGFmQSNjdsmc35JDF1K5GRwUjcdlttVFm-rI7dbR79-U6ingQ.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/ebgaramond/v13/SlGDmQSNjdsmc35JDF1K5E55YMjF_7DPuGi-6_RkB49_S6w.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/ebgaramond/v13/SlGDmQSNjdsmc35JDF1K5E55YMjF_7DPuGi-DPNkB49_S6w.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'Jura';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/jura/v14/z7NOdRfiaC4Vd8hhoPzfb5vBTP1d7ZulR_ibHw.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'Jura';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/jura/v14/z7NOdRfiaC4Vd8hhoPzfb5vBTP266pulR_ibHw.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Condensed Light'), local('OpenSansCondensed-Light'), url(https://fonts.gstatic.com/s/opensanscondensed/v14/z7NFdQDnbTkabZAIOl9il_O6KJj73e7Ff1GhDubMR6WR.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Condensed Bold'), local('OpenSansCondensed-Bold'), url(https://fonts.gstatic.com/s/opensanscondensed/v14/z7NFdQDnbTkabZAIOl9il_O6KJj73e7Ff0GmDubMR6WR.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'Play';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Play Regular'), local('Play-Regular'), url(https://fonts.gstatic.com/s/play/v11/6aez4K2oVqwIvtY2H68T.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'Play';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Play Bold'), local('Play-Bold'), url(https://fonts.gstatic.com/s/play/v11/6ae84K2oVqwItm4TCpMy2knT.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v20/KFOkCnqEu92Fr1Mu51xLIzIFKw.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(https://fonts.gstatic.com/s/roboto/v20/KFOjCnqEu92Fr1Mu51TzBic5CsTKlA.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4WxKOzY.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBxc4EsA.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+
+
+
