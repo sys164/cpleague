@@ -44,7 +44,7 @@
 
   $cpl = new cpl();
   $divisions = new divisions($base_dir);
-#  $fixtures = new fixtures(0,0);
+  $fixtures = new fixtures(0,0);
 
   if(!file_exists('config/config.colour.php') || !file_exists('config/config.club.php')) {
     header("Location: install/index.php");
