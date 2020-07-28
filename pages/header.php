@@ -6,7 +6,7 @@ $split_name = explode(' ', CLUB_NAME);
 ?>
 
 <!---  <img class="logo" src=<?php # echo '../images/'.CLUB_LOGO.'';?>></img> --->
-  <img class="logo" src=<?php echo '../images/new_logo.gif';?>></img>
+  <img class="logo" src="<?php echo '../images/new_logo.gif';?>" onClick="location.href='../../index.php'"></img>
 
   <div class="name">
     <p>
