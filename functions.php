@@ -21,7 +21,7 @@ function get_tabs($dir) {
           $d = strpos($buffer, "=")+1;
           $title = substr($buffer, $d, strlen($buffer)-$d);
           $title = trim(str_replace(';', '', str_replace('"', '', $title)));
-          break; // Once you find the string, you should break out the loop.
+          break; // Find the string, then break out the loop.
         }      
       }
       fclose($handle);
