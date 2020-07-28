@@ -24,6 +24,10 @@
 
   include($base_dir.'functions.php');
 
+  $cpl = new cpl();
+  $divisions = new divisions($base_dir);
+  $fixtures = new fixtures(0,0);
+
   switch ($_SERVER['SERVER_NAME']) {
     case 'cpleague.co.uk':
       header("Location: https://www.communitypartnershipleague.co.uk");
@@ -41,10 +45,6 @@
       die();
       break;
   }
-
-  $cpl = new cpl();
-  $divisions = new divisions($base_dir);
-  $fixtures = new fixtures(0,0);
 
   if(!file_exists('config/config.colour.php') || !file_exists('config/config.club.php')) {
     header("Location: install/index.php");
@@ -66,16 +66,16 @@
   <meta charset="utf-8">
 
   <?php include_once('favicon.php'); ?>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="js/bootstrap-4.2.1/bootstrap.min.js"></script>
-
   <link rel="stylesheet" href="css/bootstrap-4.2.1/bootstrap.min.css">
 
   <link rel="stylesheet" href="<?php echo $base_dir; ?>css/fonts.css" type="text/css" charset="utf-8" />
   <link rel="stylesheet" href="<?php echo $base_dir; ?>css/layout.php" type="text/css" charset="utf-8" />
   <link rel="stylesheet" href="<?php echo $base_dir; ?>css/membership.php" type="text/css" charset="utf-8" />
   <link rel="stylesheet" href="<?php echo $base_dir; ?>css/fixtures.php" type="text/css" charset="utf-8" />
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="js/bootstrap-4.2.1/bootstrap.min.js"></script>
 
   <script src="<?php echo $base_dir; ?>menu.js"></script> 
 </head>
