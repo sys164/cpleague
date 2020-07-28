@@ -24,30 +24,6 @@
   </p>
 </div>
 
-<?php
-
-foreach ($divisions as $division) {
-  foreach ($division as $key => $details) {
-    $div_code = $key;
-  }
-  $divisionseason = $division->division_season;
-  $divisioncode = $division->division_code;
-  $div_fixtures = new fixtures($divisionseason, $divisioncode);
-  $no_fixtures = 0;
-  foreach ($div_fixtures as $fixture) {
-    $no_fixtures++;
-    $div_code = $fixture->competition;
-    $datetime = $fixture->datetime;
-
-    $f = [];
-    foreach ($fixture as $key => $value) {
-      $fixtures->$div_code->$datetime->$no_fixtures->$key = $value; 
-    }
-  }
-}
-
-?>
-
 <hr>
 
 <div id="div_select">
