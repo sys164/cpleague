@@ -17,7 +17,7 @@
     <li>The FA Matchday App runs on mobile devices, providing different acceess for coaches, parents and players - coaches can even record statistics like times of goals, numbers of assists etc<br><br>
     <div style='position: relative; padding: 0; margin: 0 auto;'>
       <a href="https://play.google.com/store/apps/details?id=com.thefa.matchdayapp&hl=en_GB" target="_Tab"><img src="../../images/playstore - black.gif" style="height: 4vh; margin: 0 1vw;"></a>
-      <a href="https://apps.apple.com/gb/app/the-fa-matchday/id1401913451" target="_Tab"><img src="../../images/appstore - back.gif" style="height: 4vh; margin: 0 1vw;"></a>
+      <a href="https://apps.apple.com/gb/app/the-fa-matchday/id1401913451" target="_Tab"><img src="../../images/appstore - black.gif" style="height: 4vh; margin: 0 1vw;"></a>
     </div>
     </li>
   </ul>
@@ -25,27 +25,23 @@
 </div>
 
 <?php
+  foreach ($divisions as $division) {
+    $divisionseason = $division->division_season;
+    $divisioncode = $division->division_code;
+#    echo "<strong>Division Season - ".$divisionseason."<br>Division Code - ".$divisioncode."</strong><br>";
+    $div_fixtures = new fixtures($divisionseason, $divisioncode);
 
-foreach ($divisions as $division) {
-  foreach ($division as $key => $details) {
-    $div_code = $key;
-  }
-  $divisionseason = $division->division_season;
-  $divisioncode = $division->division_code;
-  $div_fixtures = new fixtures($divisionseason, $divisioncode);
-  $no_fixtures = 0;
-  foreach ($div_fixtures as $fixture) {
-    $no_fixtures++;
-    $div_code = $fixture->competition;
-    $datetime = $fixture->datetime;
-
-    $f = [];
-    foreach ($fixture as $key => $value) {
-      $fixtures->$div_code->$datetime->$no_fixtures->$key = $value; 
+    if(!empty($div_fixtures)){
+      $no_fixtures = 0;
+      foreach ($div_fixtures as $fixture) {
+        $no_fixtures++;
+        $datetime = $fixture->datetime;
+        foreach ($fixture as $key => $value) {
+          $fixtures->$divisioncode->$datetime->$no_fixtures->$key = $value; 
+        }
+      }
     }
   }
-}
-
 ?>
 
 <hr>
@@ -59,12 +55,14 @@ foreach ($divisions as $division) {
       <option value="0">Please select your division</option>
       <?php
       $i = 0;
-      foreach ($fixtures as $division_code => $datetime) {
-        $i++;
-        $division_name = $divisions->$division_code->name;
-        ?>
-        <option value="<?php echo $division_code; ?>"><?php echo $division_name; ?></option>
-        <?php
+      if(!empty($fixtures)) {
+        foreach ($fixtures as $division_code => $datetime) {
+          $i++;
+          $division_name = $divisions->$division_code->name;
+          ?>
+          <option value="<?php echo $division_code; ?>"><?php echo $division_name; ?></option>
+          <?php
+        }
       }
       ?>
     </select>
@@ -77,9 +75,20 @@ foreach ($divisions as $division) {
   <iframe src="./pages/fixtures/nothing.php" name="cpl_fixtures"></iframe>
 </div>
 
+<!---
+<div>
+  <pre>
+    <?php 
+      # echo date_format(now(), "D d M Y")."<br>";
+    ?>
+  </pre>
+</div>
+--->
+
 <script type="text/javascript">
   function test(a) {
     var x = (a.value || a.options[a.selectedIndex].value);  //crossbrowser solution =)
     a.form.submit();
   }
 </script>
+
