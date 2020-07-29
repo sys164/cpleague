@@ -18,16 +18,6 @@
       break;
   }
 
-  include($base_dir.'classes/cpl.php');
-  include($base_dir.'classes/videos.php');
-//  include($base_dir.'classes/user.php');
-
-  include($base_dir.'functions.php');
-
-  $cpl = new cpl();
-  $divisions = new divisions($base_dir);
-  $fixtures = new fixtures(0,0);
-
   switch ($_SERVER['SERVER_NAME']) {
     case 'cpleague.co.uk':
       header("Location: https://www.communitypartnershipleague.co.uk");
@@ -52,6 +42,16 @@
     include_once($base_dir.'config/config.club.php');
     include_once($base_dir.'config/config.colour.php');
   }
+
+  include($base_dir.'classes/cpl.php');
+  include($base_dir.'classes/videos.php');
+//  include($base_dir.'classes/user.php');
+
+  include($base_dir.'functions.php');
+
+  $cpl = new cpl();
+  $divisions = new divisions($base_dir);
+#  $fixtures = new fixtures(0,0);
 
 ?>
 
@@ -116,10 +116,10 @@
   <div id="content">
   <?php
 
-    for($i=1; $i<=$x-1; $i++) {
+    for($i=1; $i<=$x; $i++) {
       echo "<div id=\"Tab".$i."\" class=\"tabcontent\">";
 #      echo "<p>".$dir.$tabs[$i]['filename'].".php</p>";
-      include $dir.$tabs[$i]['filename'].".php";
+      include ($dir.$tabs[$i]['filename'].'.php');
 //      echo "<p><pre>";
 //      print_r($_SESSION);
 //      echo "</pre></p>";

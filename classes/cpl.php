@@ -261,53 +261,55 @@
       $xpath = new DOMXPath($dom);
       $elements = $xpath->query('//tr');
 
-      $today = date('D d M Y')."<br>";
-      $j = 0;
+      $today = date("D d M Y");
+      $today_dt = strtotime($today);
+      $fortnight_dt = strtotime($today . ' + 14 days');
+      $fortnight = date("D d M Y", $fortnight_dt);
 
-      $isFixture = 1;
+      $j=0;
       foreach ($elements as $element) {
-        if(stripos($element->textContent, 'league')) {
-          $isFixture = 0;
+        $tr = array_values(array_filter(preg_split("/[\t]/", $element->nodeValue)));
+
+        if(strtoupper(trim(substr($tr['0'], 0, 4))) == "SAT") {
+          $datetime = strtotime(trim(substr($tr['0'], 0, 16)));
         }
 
-        if(stripos($element->textContent, 'schedule')) {
-          $isFixture = 0;
-        }
+// Modify this line to limit the dates returned
+        if(($datetime <= $today_dt) && ($datetime <= $fortnight_dt)) {
+#          echo "<div><p>".$today."<br>".$fortnight."</p></div>";
 
-        if($datetime < strtotime($today)) {
-          $isFixture = 0;
-        }
-
-        if($isFixture == 1) {
-          if(strlen($element->textContent) == 24) {
-            $datetime = strtotime(trim(substr($element->textContent, 0, 16)));
-          } else {
+          if(strtoupper(trim($tr['1'])) == 'V') {
             $j++;
-            $tmp = preg_split("/[\t]/", $element->textContent);
-            $tmp = array_values(array_filter($tmp));
-            if(count($tmp) == 4 && $tmp['2'] == 'v') {$tmp['4'] = '';}
-            switch (count($tmp)) {
-              case 4:
-                $this->$j->competition = $DivisionCode;
-                $this->$j->datetime = $datetime;
-                $this->$j->home = preg_replace('/\\\\\'/', '', $tmp['0']);
-                $this->$j->away = preg_replace('/\\\\\'/', '', $tmp['2']);
-                $this->$j->venue = $tmp['3'];
-                break;
-              
-              case 5:
-                $this->$j->competition = $DivisionCode;
-                $this->$j->datetime = $datetime;
-                $this->$j->home = preg_replace('/\\\\\'/', '', $tmp['1']);
-                $this->$j->away = preg_replace('/\\\\\'/', '', $tmp['3']);
-                $this->$j->venue = $tmp['4'];
-                break;
+            $this->$j->competition = $DivisionCode;
+            $this->$j->datetime = $datetime;
+            $this->$j->home = preg_replace('/\\\\\'/', '', $tr['0']);
+            $this->$j->away = preg_replace('/\\\\\'/', '', $tr['2']);
+            if(!empty($tr['3'])) {
+              $this->$j->venue = $tr['3'];
+            } else {
+              $this->$j->venue = "";
+            }
+            $this->$j->type = "Friendly";
+          }
 
-              default:
-                # code...
-                break;
+          if(strtoupper(trim($tr['2'])) == 'V') {
+            $j++;
+            $this->$j->competition = $DivisionCode;
+            $this->$j->datetime = $datetime;
+            $this->$j->home = preg_replace('/\\\\\'/', '', $tr['1']);
+            $this->$j->away = preg_replace('/\\\\\'/', '', $tr['3']);
+            if(!empty($tr['4'])) {
+              $this->$j->venue = $tr['4'];
+            } else {
+              $this->$j->venue = "";
+            }
+            if(strtoupper(substr(trim($tr['0']), 0, 1)) == "C") {
+              $this->$j->type = "Cup";
+            } else {
+              $this->$j->type = "League";
             }
           }
+
         }
       }
     }
