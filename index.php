@@ -8,12 +8,12 @@
       $dir = "./pages/";
       $base_dir = './';
       break;
-    
+
     case '3':
       $dir = "./";
       $base_dir = '../';
       break;
-    
+
     default:
       break;
   }
@@ -79,7 +79,7 @@
 
   <script src="<?php echo $base_dir; ?>menu.js"></script> 
 </head>
-<body onload="openPage('Tab1', this, '<?php echo $settings->paper_colour; ?>');"> 
+<body onload="jQuery('#t1').click();">
 
 <!--- openPage('Tab1', 'defaultOpen', <?php # echo $settings->paper_colour ?>); --->
 <!---  document.getElementById('defaultOpen').style.backgroundColor = '<?php # echo $settings->paper_colour ?>'; --->
@@ -106,9 +106,9 @@
 
       $x = count($tabs);
       for($i=1; $i<=$x-1; $i++) {
-        echo "<button class=\"tablink\" onclick=\"openPage('Tab".$i."', this, '".PAPER_BG_COLOUR."')\">".$tabs[$i]['title']."</button>";
+        echo "<button id=\"t".$i."\" class=\"tablink\" onclick=\"openPage('Tab".$i."', this, '".PAPER_BG_COLOUR."')\">".$tabs[$i]['title']."</button>";
       }
-      echo "<button class=\"tablink\" onclick=\"openPage('Tab".$x."', this, '".PAPER_BG_COLOUR."')\" style=\"border-right: none;\">".$tabs[$x]['title']."</button>";
+      echo "<button id=\"t".$x."\" class=\"tablink\" onclick=\"openPage('Tab".$x."', this, '".PAPER_BG_COLOUR."')\" style=\"border-right: none;\">".$tabs[$x]['title']."</button>";
     ?>
 <!---    </div> --->
   </div>
