@@ -35,6 +35,7 @@
   class user {
     function __construct($email = NULL, $password = NULL, $pwdcheck = NULL, $hash = NULL, $base_dir = NULL) {
       $reg_type = 0;
+      $id_check = "";
       $db = db_connect($base_dir);
 
 // Set the sql for first time login(find user)
@@ -51,7 +52,8 @@
         $chair_sql = sql_update("chairperson", $email, $password);
         $treasurer_sql = sql_update("treasurer", $email, $password);
         $welfare_sql = sql_update("welfare", $email, $password);
-        
+
+/*
         $result = mysqli_query($db, $sec_sql);
         $result = mysqli_query($db, $chair_sql);
         $result = mysqli_query($db, $treasurer_sql);
@@ -61,6 +63,7 @@
         $chair_sql = sql_user("chairperson", $email, $password);
         $treasurer_sql = sql_user("treasurer", $email, $password);
         $welfare_sql = sql_user("welfare", $email, $password);
+*/
       }
 
 // Set the sql for finding user
@@ -78,6 +81,7 @@
           foreach ($sec as $key => $value) {
             $this->secretary->$key = $value;
           }
+          $id_check = $id_check.trim($sec['club_id']);
         }
         $reg_type = $reg_type + 1;
       } else {
@@ -91,6 +95,7 @@
           foreach ($chair as $key => $value) {
             $this->chairperson->$key = $value;
           }
+          $id_check = $id_check.trim($chair['club_id']);
         }
         $reg_type = $reg_type + 2;
       } else {
@@ -105,6 +110,7 @@
             foreach ($treasurer as $key => $value) {
               $this->treasurer->$key = $value;
             }
+          $id_check = $id_check.trim($treasurer['club_id']);
           }
           $reg_type = $reg_type + 4;
         }
@@ -118,9 +124,16 @@
             foreach ($welfare as $key => $value) {
               $this->welfare->$key = $value;
             }
+          $id_check = $id_check.trim($welfare['club_id']);
           }
           $reg_type = $reg_type + 8;
         }
+      }
+
+      if(strlen($id_check) > 0) {
+        $this->id_check = 1;
+      } else {
+        $this->id_check = 0;
       }
 
       $this->regtype = $reg_type;

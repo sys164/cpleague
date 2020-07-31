@@ -13,6 +13,7 @@
   } else {
     $postdata = new postdata($_GET);
   }
+  $postdata->result = "";
 
   if(empty($postdata->position->firstname) || empty($postdata->position->surname) || empty($postdata->position->mobile) || empty($postdata->position->email)) {
     $valid = false;
@@ -22,23 +23,31 @@
 
   if($valid) {
 
-    if(strtolower($postdata->form->type) == 'add') {
-      $test_sql = "
-        SELECT 
-          `id`,
-          `firstname`,
-          `surname`,
-          `mobile`
-        FROM 
-          `".$postdata->position->type."` 
-        WHERE 
-          `email`='".$postdata->position->email."';";
+    $test_sql = "
+      SELECT 
+        `id`,
+        `firstname`,
+        `surname`,
+        `mobile`
+      FROM 
+        `".$postdata->position->type."` 
+      WHERE 
+        `email`='".$postdata->position->email."';";
 
-      $test_position = mysqli_query($db, $test_sql);
-      foreach ($test_position as $z => $position) {
-        $postdata->position->id = $position['id'];
-        $postdata->form->type = 'update';
+    $test_position = mysqli_query($db, $test_sql);
+    $postdata->test_position = count($test_position);
+
+    foreach ($test_position as $z => $position) {
+      $postdata->position->id = $position['id'];
+      foreach ($position as $key => $value) {
+        $postdata->test->$z->$key = $value;
       }
+    }
+
+    if(!empty($postdata->test)) {
+      $postdata->form->type = 'update';
+    } else {
+      $postdata->form->type = 'add';
     }
 
     switch (strtolower($postdata->form->type)) {
@@ -57,9 +66,9 @@
 
         $postdata->result = mysqli_query($db, $person_sql);
 
-        $club_sql = NULL;
+//        $club_sql = NULL;
     		break;
-  	
+
     	case 'add':
         $hash = rand(0, 1000);
 
@@ -83,32 +92,6 @@
 
         mysqli_query($db, $person_sql);
 
-        $find_person = "
-        SELECT 
-          `id`
-        FROM 
-          `".$postdata->position->type."` 
-        WHERE 
-          `email`='".$postdata->position->email."';";
-
-        $test_persons = mysqli_query($db, $find_person);
-        if(count($test_persons)>0) {
-        	foreach($test_persons as $test_person) {
-        	  $postdata->position->id = $test_person['id'];
-      	  }
-        }
-
-        $club_sql = "
-          UPDATE 
-            `clubs` 
-          SET 
-            `".$postdata->position->type."` = '".$postdata->position->id."',
-            `modified` = '".$dt."'
-          WHERE 
-            `id`='".$postdata->club->id."';";
-
-        $postdata->result = mysqli_query($db, $club_sql);
-
         $name = $postdata->position->firstname." ".$postdata->position->surname;
         $position = ucwords($postdata->position->type);
         $email = $postdata->position->email;
@@ -121,11 +104,37 @@
         registration_email($name, $club, $position, $email);
 
         break;
-  	
-    	default:
-    		# code...
-  	  	break;
+
+      default:
+        # code...
+        break;
     }
+
+    $find_person = "
+        SELECT 
+          `id`
+        FROM 
+          `".$postdata->position->type."` 
+        WHERE 
+          `email`='".$postdata->position->email."';";
+
+    $test_persons = mysqli_query($db, $find_person);
+    if(count($test_persons)>0) {
+     	foreach($test_persons as $test_person) {
+     	  $postdata->position->id = $test_person['id'];
+   	  }
+    }
+
+    $club_sql = "
+        UPDATE 
+          `clubs` 
+        SET 
+          `".$postdata->position->type."` = '".$postdata->position->id."',
+          `modified` = '".$dt."'
+        WHERE 
+          `id`='".$postdata->club->id."';";
+
+    $postdata->result = mysqli_query($db, $club_sql);
   }
 
   echo json_encode($postdata);

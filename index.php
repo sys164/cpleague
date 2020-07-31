@@ -51,6 +51,8 @@
 
   $cpl = new cpl();
   $divisions = new divisions($base_dir);
+  $postdata = new postdata($_POST);
+  $user = new user($postdata->usrname, $postdata->psw, $postdata->pswConfirm, "", $base_dir);
 #  $fixtures = new fixtures(0,0);
 
 ?>
@@ -86,15 +88,22 @@
 
 <div id="page">
 
-  <div id="top-bar">
-    <div class="login-register" type="button" data-toggle="modal" data-target="#myModal" onclick="loginButton();">
-      Login/Register
-    </div>
+  <div id="top-bar"> <?php
+    if ($user->regtype == 0) { ?>
+      <div class="login-register" type="button" data-toggle="modal" data-target="#myModal" onclick="loginButton();">
+        Login/Register
+      </div> <?php
+    } else { ?>
+<!---      <div class="login-register" type="button" onclick="alert('Got Here');"> --->
+      <div class="login-register" type="button" onclick="parent.location='index.php';">
+        Logout
+      </div> <?php
+    } ?>
   </div>
 
   <div id="header-bar">
     <?php 
-      include($base_dir.'/pages/header.php'); 
+      include($base_dir."/pages/header.php"); 
     ?>
   </div>
 

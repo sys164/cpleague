@@ -6,7 +6,6 @@
   $member_dir = "./";
 
   include($base_dir."classes/cpl.php");
-//  include($base_dir."classes/user.php");
 
   $db = db_connect($base_dir);
   $divisions = new divisions($base_dir);
@@ -35,6 +34,9 @@
         echo "Wibble";
       }
       break;
+    
+    case 'cpl.localhost':
+      break;
 
     case 'members.communitypartnershipleague.co.uk':
       header("Location: https://www.communitypartnershipleague.co.uk/pages/members");
@@ -46,6 +48,7 @@
     default:
       echo "<h1>Access Denied</h1>";
       echo "<p>This site can only be accessed via a recognised URL.</p>";
+      die();
       break;
   }
 
@@ -82,10 +85,18 @@
 
 <body> 
 <div id="page">
-  <div id="top-bar">
-    <div class="login-register" type="button" data-toggle="modal" data-target="#myModal" onclick="loginButton();">
-      Login/Register
-    </div>
+
+  <div id="top-bar"> <?php
+    if ($user->regtype == 0) { ?>
+      <div class="login-register" type="button" data-toggle="modal" data-target="#myModal" onclick="loginButton();">
+        Login/Register
+      </div> <?php
+    } else { ?>
+<!---      <div class="login-register" type="button" onclick="alert('Got Here');"> --->
+      <div class="login-register" type="button" onclick="parent.location='../../index.php';">
+        Logout
+      </div> <?php
+    } ?>
   </div>
 
   <div id="header-bar">
@@ -123,8 +134,32 @@
     <?php
     if ($user->regtype == 0) {
       include('login.php');
-    } else {
-      ?>
+    } elseif ($user->id_check == 0) { ?>
+      <div>
+        <h1 style="text-align: center;">Your Profile</h1>
+        <p style="text-align: center;">Thank you for registering</p>
+      </div>
+      <div>
+        <p style="text-align: center;">Unfortunately, your account is no longer linked to any club.</p>
+        <p style="text-align: center;">If you feel that this is an error, please first check with your clubs committee.</p>
+      </div>
+      <div style="width: 50%; padding: 0 0 1vh 0; margin: 0 auto;">
+        <input type="button" value="Logout" onClick="parent.location='../../index.php';">
+      </div>
+
+<!---      
+      <div>
+        <pre>
+          <?php // print_r($postdata); ?>
+        </pre>
+        <pre>
+          <?php // print_r($user); ?>
+        </pre>
+      </div>
+--->
+
+      <?php
+    }  else {?>
       <div>
         <h1 style="text-align: center;">Your Profile</h1>
         <p style="text-align: center;">Thank you for registering</p>
@@ -132,9 +167,12 @@
 
 <!---
       <div>
-        <p><pre><br>
-          <?php // print_r($_POST); ?>
-        </pre></p>
+        <pre>
+          <?php // print_r($postdata); ?>
+        </pre>
+        <pre>
+          <?php // print_r($user); ?>
+        </pre>
       </div>
 --->
 
@@ -145,7 +183,10 @@
         <p style="text-align: center;">Please bear with us while we are developing this functionality</p>
         <p style="text-align: center;">Regards</p>
         <p style="text-align: center;">The CPL Committee</p>
-        <p style="text-align: center;"><br></p>
+        <p style="text-align: center;"></p>
+      </div>
+      <div style="width: 50%; padding: 0 0 1vh 0; margin: 0 auto;">
+        <input type="button" value="Logout" onClick="parent.location='../../index.php';">
       </div>
       <?php
     }
@@ -179,6 +220,7 @@
     </script>
 
 <script language="javascript" type="text/javascript">
+
   function clubDetailsForm() {
     var usrname = document.getElementById("usrname").value;
     var psw = document.getElementById("psw").value;
@@ -229,6 +271,7 @@
         console.table(obj, null, 4);
       }
     });
+//        alert('Paused');
 
 //    console.table(fd, null, 4);
     postForm('index.php', {usrname: uname, psw: psword})
