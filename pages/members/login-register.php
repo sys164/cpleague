@@ -14,7 +14,8 @@ $cpl->user_type = '';
 <!---
           <button class="memButton" onclick="showLogin();">Login</button>
 --->
-          <button class="memButton" onClick="parent.location='https://members.communitypartnershipleague.co.uk/'">Login</button>
+<!---          <button class="memButton" onClick="parent.location='https://members.communitypartnershipleague.co.uk/'">Login</button> --->
+          <button class="memButton" onClick="parent.location='pages/members/index.php'">Login</button>
           <button class="memButton" onclick="showRegister();">Register</button>
         </div>
 

@@ -33,7 +33,7 @@ if(isset($_POST['club_name'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="https://www.communitypartnershipleague.co.uk/css/membership.php" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/css/membership.php" type="text/css" charset="utf-8" />
 </head>
 <body style="background-color: transparent;">
   <div class="modal-body">
