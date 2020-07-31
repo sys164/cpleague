@@ -81,18 +81,18 @@
 
         <div style="display: inline-block; width: auto; position: relative;">
           <input style="padding: 1vh 1vw; margin: 0;" type="text" id="coach_surname" name="coach_surname" value="" pattern="\S+.*" required>
-          <label for="coach_surname">Surame</label>
+          <label for="coach_surname">Surname</label>
         </div>
       </div>
 
       <div>
         <input style="padding: 1vh 1vw; margin: 0;" type="text" id="coach_mobile" name="coach_mobile" value="" pattern="\S+.*" required>
-        <label for="coach_mobile">Coachs mobile</label>
+        <label for="coach_mobile">Coaches mobile</label>
       </div>
 
       <div>
         <input style="padding: 1vh 1vw; margin: 0;" type="email" id="coach_email" name="coach_email" value="" required>
-        <label for="coach_email">Coachs email</label>
+        <label for="coach_email">Coaches email</label>
       </div>
 
 
